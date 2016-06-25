@@ -37,11 +37,11 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
 controller.hears('campaignhub', ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
 //bot prompt campaignhub
   bot.say(
-    {
-      text: 'my message text',
-      channel: '#akash_test' // a valid slack channel, group, mpim, or im ID
-    }
-  );
+  {
+    text: 'my message text',
+    channel: 'C0H338YH4' // a valid slack channel, group, mpim, or im ID
+  }
+);
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
