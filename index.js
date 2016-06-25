@@ -34,8 +34,10 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
 
-controller.hears(['campaignhub'], ['direct_mention'], function (bot, message) {
-  bot.reply(message, 'campaignhub')
+controller.hears('campaignhub', ['direct_message', 'direct_mention'], function (bot, message) {
+  var campaignhub = 'Glad you want to know more about CampaignHub!' +
+      'try looking <https://www.broadplace.com/campaignhub.html | here>'
+  bot.reply(message, campaignhub)
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
