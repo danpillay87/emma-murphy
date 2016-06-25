@@ -36,6 +36,7 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
 
 controller.hears('campaignhub', ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
 //bot prompt campaignhub
+  console.log(message);
   bot.say(
   {
     text: 'my message text',
