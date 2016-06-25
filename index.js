@@ -35,7 +35,7 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
 })
 
 controller.hears(['campaignhub'], ['direct_mention'], function (bot, message) {
-  bot.reply(message, 'If you want to know more about CampaignHub you can look <https://www.broadplace.com/campaignhub.html | here>.')
+  bot.reply(message, 'campaignhub')
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
