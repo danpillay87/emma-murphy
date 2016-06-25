@@ -38,6 +38,13 @@ controller.hears('campaignhub', ['direct_message', 'direct_mention', 'ambient'],
   var campaignhub = 'Glad you want to know more about CampaignHub!' +
       'try looking <https://www.broadplace.com/campaignhub.html | here>'
   bot.reply(message, campaignhub)
+//bot prompt campaignhub
+  bot.say(
+    {
+      text: 'my message text',
+      channel: '#akash_test' // a valid slack channel, group, mpim, or im ID
+    }
+  );
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
