@@ -39,7 +39,7 @@ controller.hears('campaignhub', ['direct_message', 'direct_mention', 'ambient'],
   bot.say(
     {
       text: 'my message text',
-      user: 'U1KD7M1D3' // a valid slack channel, group, mpim, or im ID
+      channel: 'D1L91CN93' // a valid slack channel, group, mpim, or im ID
     }
   );
 })
