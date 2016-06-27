@@ -130,17 +130,13 @@ askForecast = function(response, convo) {
   });
 }
 
-controller.hears(['(.*)'], 'message_received', function(bot,message) {
-// start a conversation to handle this response.
-    askPrevious = function(response, convo) {
-    convo.ask("What was your previous spend?", function(response, convo) {
-    var previousRate = message.match[1];
+askPrevious = function(response, convo) {
+  convo.ask("What was your previous spend?", function(response, convo) {
     convo.say("Ok.")
     askRecent(response, convo);
     convo.next();
   });
 }
-});
 
 askRecent = function(response, convo) { 
   convo.ask("What's your most recent number?", function(response, convo) {
