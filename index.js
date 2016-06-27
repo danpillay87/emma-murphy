@@ -34,7 +34,7 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
 
-controller.hears(['camaignhub lite'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+controller.hears(['tell me about camaignhub lite'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
   var text = 'CampaignHub Lite offers a FREE taster of our CampaignHub platform to advertisers.'
   var campaignhublite = [{
     fallback: text,
@@ -53,7 +53,7 @@ controller.hears(['camaignhub lite'], ['direct_message', 'direct_mention', 'ambi
   })
 })
 
-controller.hears(['campaignhub'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+controller.hears(['tell me about campaignhub'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
   var text = 'CampaignHub is an advertising platform designed to make advertising awesome & effective.'
   var campaignhub = [{
     fallback: text,
