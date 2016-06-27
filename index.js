@@ -126,14 +126,17 @@ askRunRate = function(response, convo) {
 }
 askPrevious = function(response, convo) {
   convo.ask("What was your previous spend please?", function(response, convo) {
-    convo.say(response.text + "Ok.")
+    var previousSpend = response.text;
+    convo.say(response.text + " Ok.")
     askCurrent(response, convo);
     convo.next();
   });
 }
 askCurrent = function(response, convo) { 
   convo.ask("what is your most recent number?", function(response, convo) {
-    convo.say("Ok!" + response.text);
+    var currentSpend = response.text;
+    var runRate = (currentSpend - previousSpend) / 7;
+    convo.say("Ok! " + runRate);
     convo.next();
   });
 }
