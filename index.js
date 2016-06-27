@@ -1,4 +1,5 @@
 var Botkit = require('botkit')
+
 var token = process.env.SLACK_TOKEN
 
 var controller = Botkit.slackbot({
@@ -129,7 +130,6 @@ askForecast = function(response, convo) {
     convo.next();
   });
 }
-
 askPrevious = function(response, convo) {
   convo.ask("What was your previous spend?", function(response, convo) {
     convo.say("Ok.")
@@ -137,10 +137,8 @@ askPrevious = function(response, convo) {
     convo.next();
   });
 }
-
 askRecent = function(response, convo) { 
   convo.ask("What's your most recent number?", function(response, convo) {
-    var recentRate = message.match[1]; //match[1] is the (.*) group. match[0] is the entire group (open the (.*) doors).
     convo.say("Ok! cool - that means your run rate at the moment is."+runRate);
     convo.next();
   });
