@@ -34,14 +34,42 @@ controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
   bot.reply(message, 'Hello.')
 })
 
-controller.hears('campaignhub', ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
-//bot prompt campaignhub
-  bot.say(
-    {
-      text: 'my message text',
-      channel: 'D1L91CN93' // a valid slack channel, group, mpim, or im ID
-    }
-  );
+controller.hears(['camaignhub lite'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+  var text = 'CampaignHub Lite offers a FREE taster of our CampaignHub platform to advertisers.'
+  var campaignhublite = [{
+    fallback: text,
+    pretext: 'CampaignHub Lite gives FREE reporting on tap',
+    title: 'Free Reporting, optimisation tips & insights in minutes',
+    video_url: 'https://www.youtube.com/watch?v=j7hJtiZr-GI',
+    title_link: 'https://campaignhub.broadplace.com/oauth/default.aspx',
+    text: text,
+    color: '#7CD197'
+  }]
+
+  bot.reply(message, {
+    attachments: campaignhublite
+  }, function (err, resp) {
+    console.log(err, resp)
+  })
+})
+
+controller.hears(['attachment'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+  var text = 'CampaignHub is an advertising platform designed to make advertising awesome & effective.'
+  var campaignhub = [{
+    fallback: text,
+    pretext: 'CampaignHub Makes Your Marketing Better! :sunglasses: :thumbsup:',
+    title: 'Plan, optimise and report on your advertising.',
+    image_url: 'https://www.broadplace.com/img/campaign-hub-logo.png',
+    title_link: 'https://www.broadplace.com/campaignhub.html',
+    text: text,
+    color: '#7CD197'
+  }]
+
+  bot.reply(message, {
+    attachments: campaignhub
+  }, function (err, resp) {
+    console.log(err, resp)
+  })
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
