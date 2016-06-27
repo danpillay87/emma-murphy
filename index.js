@@ -109,7 +109,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   })
 })
 
-controller.hears(['7 day run rate'], ['ambient','direct_message', 'direct_mention'], function(bot, message) {
+controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_mention'], function(bot, message) {
 
   var previousSpend = message.match[1] // the spend you had tracked 7 days ago
   var latestSpend = message.user // the spend you have as of now
