@@ -145,5 +145,3 @@ controller.hears(['run rate'],['ambient','direct_message', 'direct_mention'],fun
         convo.next();
       });
     }
-
-});
