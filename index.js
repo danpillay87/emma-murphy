@@ -139,7 +139,7 @@ askPrevious = function(response, convo) {
 }
 askRecent = function(response, convo) { 
   convo.ask("What's your most recent number?", function(response, convo) {
-    convo.say("Ok! Goodbye.");
+    convo.say("Ok! cool - that means your run rate at the moment is."+runRate);
     convo.next();
   });
 }
