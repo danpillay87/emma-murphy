@@ -109,14 +109,10 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   })
 })
 
-controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
-  bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
-})
+controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_mention'], function(bot, message) {
 
-controller.hears(["7 day run rate"], ["ambient"], function(bot, message) {
-
-  var userID = message.user // the ID of the user that mentioned "khaled"
-  var user = "<@"+userID+">" // wrap around like this to create an @ mention of the user
-  var reply = user+" you spoke my name?"; // create reply
+  var previousSpend = message.match[1] // the spend you had tracked 7 days ago
+  var latestSpend = message.user // the spend you have as of now
+  var reply = "I guess your run rate is £"+previousSpend; // create reply
   bot.reply(message, reply); // send reply
 })
