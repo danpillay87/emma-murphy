@@ -119,27 +119,31 @@ controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_m
 })
 */
 
-controller.hears(['run rate'],['ambient'],function(bot,message) {
+controller.hears(['run rate'],['ambient','direct_message', 'direct_mention'],function(bot,message) {
   bot.startConversation(message, askForecast);
 });
 
-askForecast = function(response, convo) {
-  convo.ask("Need a hand with your forecast?", function(response, convo) {
-    convo.say("Awesome.");
-    askPrevious(response, convo);
-    convo.next();
-  });
-}
-askPrevious = function(response, convo) {
-  convo.ask("What was your previous spend?", function(response, convo) {
-    convo.say("Ok.")
-    askRecent(response, convo);
-    convo.next();
-  });
-}
-askRecent = function(response, convo) { 
-  convo.ask("What's your most recent number?", function(response, convo) {
-    convo.say("Ok! cool - that means your run rate at the moment is."+runRate);
-    convo.next();
-  });
-}
+    askForecast = function(response, convo) {
+      convo.ask('Need a hand calculating your run rate & forecast?', function(response, convo) {
+        convo.say('Awesome.');
+        askPreviousSpend(response, convo);
+        convo.next();
+      });
+    }
+    
+    askPreviousSpend = function(response, convo) {
+      convo.ask('What was your spend 7 days ago?', function(response, convo) {
+        convo.say('Ok.')
+        askLatestSpend(response, convo);
+        convo.next();
+      });
+    }
+    
+    askLatestSpend = function(response, convo) {
+      convo.ask('and what was your most recent spend figure?', function(response, convo) {
+        convo.say('Ok! cool.');
+        convo.next();
+      });
+    }
+
+});
