@@ -53,7 +53,7 @@ controller.hears(['camaignhub lite'], ['direct_message', 'direct_mention', 'ambi
   })
 })
 
-controller.hears(['attachment'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+controller.hears(['campaignhub'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
   var text = 'CampaignHub is an advertising platform designed to make advertising awesome & effective.'
   var campaignhub = [{
     fallback: text,
