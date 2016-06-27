@@ -113,6 +113,6 @@ controller.hears(['7 day run rate'], ['ambient','direct_message', 'direct_mentio
 
   var previousSpend = message.match[1] // the spend you had tracked 7 days ago
   var latestSpend = message.user // the spend you have as of now
-  var reply = "I guess your run rate is £"; // create reply
+  var reply = "I guess your run rate is £"+previousSpend; // create reply
   bot.reply(message, reply); // send reply
 })
