@@ -112,3 +112,11 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
 })
+
+controller.hears(["7 day run rate"], ["ambient"], function(bot, message) {
+
+  var userID = message.user // the ID of the user that mentioned "khaled"
+  var user = "<@"+userID+">" // wrap around like this to create an @ mention of the user
+  var reply = user+" you spoke my name?"; // create reply
+  bot.reply(message, reply); // send reply
+})
