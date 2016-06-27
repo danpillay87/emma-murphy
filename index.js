@@ -119,3 +119,28 @@ controller.hears(["7 day run rate"], ["ambient"], function(bot, message) {
   var reply = user+" you spoke my name?"; // create reply
   bot.reply(message, reply); // send reply
 })
+
+controller.hears(['run rate'],['ambient'],function(bot,message) {
+  bot.startConversation(message, askRunRate);
+});
+
+askRunRate = function(response, convo) {
+  convo.ask("Do you need some help with your run rate?", function(response, convo) {
+    convo.say("Awesome.");
+    askPrevious(response, convo);
+    convo.next();
+  });
+}
+askPrevious = function(response, convo) {
+  convo.ask("What was your previous spend please?", function(response, convo) {
+    convo.say("Ok.")
+    askCurrent(response, convo);
+    convo.next();
+  });
+}
+askCurrent = function(response, convo) { 
+  convo.ask("what is your most recent number?", function(response, convo) {
+    convo.say("Ok! I'll send this to you.");
+    convo.next();
+  });
+}
