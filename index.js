@@ -72,6 +72,25 @@ controller.hears(['tell me about campaignhub'], ['direct_message', 'direct_menti
   })
 })
 
+controller.hears(['tell me about seo'], ['direct_message', 'direct_mention', 'ambient'], function (bot, message) {
+  var text = 'Our SEO proposition is based on 5 core pillars.'
+  var seo = [{
+    fallback: text,
+    pretext: 'SEO that gets your site visibility! :sunglasses: :thumbsup:',
+    title: 'Plan,& Execute an awesome SEO strategy.',
+    image_url: 'https://www.broadplace.com/img/simg-2.jpg',
+    title_link: 'https://www.broadplace.com/seo.html',
+    text: text,
+    color: '#7CD197'
+  }]
+
+  bot.reply(message, {
+    attachments: seo
+  }, function (err, resp) {
+    console.log(err, resp)
+  })
+})
+
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
   bot.reply(message, 'Hello.')
   bot.reply(message, 'It\'s nice to talk to you directly.')
