@@ -132,6 +132,9 @@ askForecast = function(response, convo) {
 }
 askPrevious = function(response, convo) {
   convo.ask("What was your previous spend?", function(response, convo) {
+    var previousRate = message.match[1]; //match[1] is the (.*) group. match[0] is the entire group (open the (.*) doors).
+    controller.hears('(.*)',['message_received'],function(bot,message);
+    var previousRate = message.match[1];
     convo.say("Ok.")
     askRecent(response, convo);
     convo.next();
@@ -139,6 +142,7 @@ askPrevious = function(response, convo) {
 }
 askRecent = function(response, convo) { 
   convo.ask("What's your most recent number?", function(response, convo) {
+    var recentRate = message.match[1]; //match[1] is the (.*) group. match[0] is the entire group (open the (.*) doors).
     convo.say("Ok! cool - that means your run rate at the moment is."+runRate);
     convo.next();
   });
