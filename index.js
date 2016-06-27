@@ -119,14 +119,18 @@ controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_m
 })
 */
 
-controller.hears(['my run rate'], 'message_recieved', function(bot,message) {
-    askFlavor = function(response, convo) {
+controller.hears(['run rate'],['ambient','direct_message', 'direct_mention'],function(bot,message) {
+  bot.startConversation(message, askForecast);
+});
+
+    askForecast = function(response, convo) {
       convo.ask('Need a hand calculating your run rate & forecast?', function(response, convo) {
         convo.say('Awesome.');
         askPreviousSpend(response, convo);
         convo.next();
       });
     }
+    
     askPreviousSpend = function(response, convo) {
       convo.ask('What was your spend 7 days ago?', function(response, convo) {
         convo.say('Ok.')
@@ -134,6 +138,7 @@ controller.hears(['my run rate'], 'message_recieved', function(bot,message) {
         convo.next();
       });
     }
+    
     askLatestSpend = function(response, convo) {
       convo.ask('and what was your most recent spend figure?', function(response, convo) {
         convo.say('Ok! cool.');
@@ -141,5 +146,4 @@ controller.hears(['my run rate'], 'message_recieved', function(bot,message) {
       });
     }
 
-    bot.startConversation(message, askFlavor);
 });
