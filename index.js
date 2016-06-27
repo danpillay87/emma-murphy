@@ -135,8 +135,7 @@ askPrevious = function(response, convo) {
 askCurrent = function(response, convo) { 
   convo.ask("what is your most recent number?", function(response, convo) {
     var currentSpend = response.text;
-    var runRate = (currentSpend - previousSpend);
-    convo.say("Ok! " + runRate);
+    convo.say("Ok! " + previousSpend);
     convo.next();
   });
 }
