@@ -120,7 +120,7 @@ controller.hears(["7 day run rate"], ["ambient"], function(bot, message) {
   bot.reply(message, reply); // send reply
 })
 
-controller.hears(['run rate'],['ambient'],function(bot,message) {
+controller.hears(['run rate'],['ambient', 'direct_message', 'direct_mention'],function(bot,message) {
   bot.startConversation(message, askRunRate);
 });
 
