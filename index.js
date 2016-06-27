@@ -109,6 +109,7 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
   })
 })
 
+/*
 controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_mention'], function(bot, message) {
 
   var previousSpend = message.match[1] // the spend you had tracked 7 days ago
@@ -116,3 +117,29 @@ controller.hears(['7 day run rate (.*)'], ['ambient','direct_message', 'direct_m
   var reply = "I guess your run rate is £"+previousSpend; // create reply
   bot.reply(message, reply); // send reply
 })
+*/
+
+controller.hears(['my run rate'], 'message_recieved', function(bot,message) {
+    askFlavor = function(response, convo) {
+      convo.ask('Need a hand calculating your run rate & forecast?', function(response, convo) {
+        convo.say('Awesome.');
+        askPreviousSpend(response, convo);
+        convo.next();
+      });
+    }
+    askPreviousSpend = function(response, convo) {
+      convo.ask('What was your spend 7 days ago?', function(response, convo) {
+        convo.say('Ok.')
+        askLatestSpend(response, convo);
+        convo.next();
+      });
+    }
+    askLatestSpend = function(response, convo) {
+      convo.ask('and what was your most recent spend figure?', function(response, convo) {
+        convo.say('Ok! cool.');
+        convo.next();
+      });
+    }
+
+    bot.startConversation(message, askFlavor);
+});
