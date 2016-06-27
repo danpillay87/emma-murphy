@@ -113,6 +113,10 @@ controller.hears(['run rate'],['ambient', 'direct_message', 'direct_mention'],fu
   bot.startConversation(message, askRunRate);
 });
 
+controller.hears('.*',['direct_message','direct_mention','mention'],function(bot,message) {
+  bot.reply(message,'Hello yourself.');
+});
+
 askRunRate = function(response, convo) {
   convo.ask("Do you need some help with your run rate?", function(response, convo) {
     convo.say("Awesome.");
@@ -122,14 +126,14 @@ askRunRate = function(response, convo) {
 }
 askPrevious = function(response, convo) {
   convo.ask("What was your previous spend please?", function(response, convo) {
-    convo.say("Ok.")
+    convo.say(response.text + "Ok.")
     askCurrent(response, convo);
     convo.next();
   });
 }
 askCurrent = function(response, convo) { 
   convo.ask("what is your most recent number?", function(response, convo) {
-    convo.say("Ok! I'll send this to you.");
+    convo.say("Ok!" + response.text);
     convo.next();
   });
 }
